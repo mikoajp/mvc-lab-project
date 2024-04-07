@@ -8,7 +8,10 @@
 <h1>Przedmioty</h1>
 <ul>
     <% subjects.forEach(function(subject) { %>
-        <li><%= subject.name %> - Poziom: <%= subject.level %></li>
+        <li>
+            <%= subject.name %> - Poziom: <%= subject.level %>
+            <a href="/edit-subject/<%= subject._id %>">Edytuj</a>
+        </li>
     <% }) %>
 </ul>
 </body>

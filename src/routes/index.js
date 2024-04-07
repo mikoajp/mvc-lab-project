@@ -5,5 +5,6 @@ const router = express.Router();
 router.get('/subjects', subjectController.getSubjects);
 router.post('/subjects', subjectController.addSubject);
 router.get('/add-subject', subjectController.showAddForm);
+router.get('/edit-subject/:id', subjectController.showEditForm);
 
 module.exports = router;

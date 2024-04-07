@@ -22,4 +22,12 @@ exports.addSubject = async (req, res) => {
 exports.showAddForm = (req, res) => {
     res.render('addSubject');
 };
+exports.showEditForm = async (req, res) => {
+    try {
+        const subject = await Subject.findById(req.params.id);
+        res.render('editSubject', { subject });
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
 
