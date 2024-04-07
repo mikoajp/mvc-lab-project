@@ -1,5 +1,6 @@
 const express = require('express');
 const subjectRoutes = require('../src/routes/index');
+const examRoutes = require('./routes/exam');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const methodOverride = require('method-override');
@@ -18,6 +19,7 @@ app.use('/', indexRoutes);
 require('./database');
 
 app.use('/', subjectRoutes);
+app.use('/', examRoutes);
 
 app.listen(PORT, () => {
     console.log(`Serwer działa na porcie ${PORT}`);

@@ -4,17 +4,18 @@
     <title>Lista przedmiotów</title>
 </head>
 <body>
-<%- include('partials/navbar') %>
+<%- include('../partials/navbar') %>
 <h1>Przedmioty</h1>
 <ul>
     <% subjects.forEach(function(subject) { %>
         <li>
-            <%= subject.name %> - Poziom: <%= subject.level %>
+            <a href="/subjects/<%= subject._id %>"><%= subject.name %></a> - Poziom: <%= subject.level %>
             <a href="/edit-subject/<%= subject._id %>">Edytuj</a>
             <form action="/subjects/<%= subject._id %>?_method=DELETE" method="post" style="display: inline;">
                 <input type="hidden" name="_method" value="DELETE">
                 <button type="submit">Usuń</button>
             </form>
+            <a href="/exams/add/<%= subject._id %>" style="margin-left: 10px;">Dodaj egzamin</a>
         </li>
     <% }) %>
 </ul>

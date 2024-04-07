@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły przedmiotu: <%= subject.name %></title>
+</head>
+<body>
+<%- include('../partials/navbar') %> <!-- Załóżmy, że masz navbar -->
+<h1><%= subject.name %></h1>
+<p>Poziom: <%= subject.level %></p>
+<p>Opis: <%= subject.description %></p>
+
+<!-- Pokaż datę, jeśli jest dostępna -->
+<% if (subject.startDate) { %>
+    <p>Data rozpoczęcia: <%= new Date(subject.startDate).toLocaleDateString() %></p>
+<% } %>
+
+<% if (subject.endDate) { %>
+    <p>Data zakończenia: <%= new Date(subject.endDate).toLocaleDateString() %></p>
+<% } %>
+
+<!-- Wyświetlanie listy egzaminów -->
+<% if (exams && exams.length > 0) { %>
+    <h2>Egzaminy:</h2>
+    <ul>
+        <% exams.forEach(function(exam) { %>
+            <li>
+                <%= exam.name %> - <%= new Date(exam.date).toLocaleDateString() %>
+                <% if (exam.grade) { %>
+                    - Ocena: <%= exam.grade %>
+                <% } %>
+                <% if (exam.description) { %>
+                    - Opis: <%= exam.description %>
+                <% } %>
+            </li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>Brak zarejestrowanych egzaminów dla tego przedmiotu.</p>
+<% } %>
+
+
+</body>
+</html>

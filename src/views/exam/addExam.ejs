@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodaj Egzamin</title>
+</head>
+<body>
+<%- include('../partials/navbar') %>
+<h1>Dodaj nowy egzamin</h1>
+<form action="/exams" method="POST">
+    <input type="hidden" name="subjectId" value="<%= subjectId %>">
+
+    <label for="name">Nazwa:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="description">Opis:</label>
+    <input type="text" id="description" name="description"><br>
+
+    <label for="date">Data:</label>
+    <input type="date" id="date" name="date" required><br>
+
+    <label for="grade">Ocena:</label>
+    <input type="number" id="grade" name="grade" step="0.1"><br>
+
+    <button type="submit">Dodaj Egzamin</button>
+</form>
+</body>
+</html>

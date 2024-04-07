@@ -1,9 +1,10 @@
 const Subject = require('../models/subject');
+const Exam = require('../models/exam');
 
 exports.getSubjects = async (req, res) => {
     try {
         const subjects = await Subject.find();
-        res.render('subjectList', { subjects });
+        res.render('subject/subjectList', { subjects });
     } catch (error) {
         res.status(500).send(error);
     }
@@ -20,13 +21,13 @@ exports.addSubject = async (req, res) => {
 };
 
 exports.showAddForm = (req, res) => {
-    res.render('addSubject');
+    res.render('subject/addSubject');
 };
 
 exports.showEditForm = async (req, res) => {
     try {
         const subject = await Subject.findById(req.params.id);
-        res.render('editSubject', { subject });
+        res.render('subject/editSubject', { subject });
     } catch (error) {
         res.status(500).send(error);
     }
@@ -51,5 +52,25 @@ exports.deleteSubject = async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).send('Wystąpił problem podczas usuwania przedmiotu.');
+    }
+};
+
+exports.showSubjectDetails = async (req, res) => {
+    try {
+        const subject = await Subject.findById(req.params.id);
+
+        if (!subject) {
+            return res.status(404).send('Przedmiot nie znaleziony.');
+        }
+
+        const exams = await Exam.find({ subjectId: subject._id });
+
+        res.render('subject/subjectDetails', {
+            subject: subject,
+            exams: exams
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Wystąpił błąd serwera.');
     }
 };
