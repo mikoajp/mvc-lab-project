@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista przedmiotów</title>
+</head>
+<body>
+<h1>Przedmioty</h1>
+<ul>
+    <% subjects.forEach(function(subject) { %>
+        <li><%= subject.name %> - Poziom: <%= subject.level %></li>
+    <% }) %>
+</ul>
+</body>
+</html>
