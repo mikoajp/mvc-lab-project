@@ -44,3 +44,12 @@ exports.updateSubject = async (req, res) => {
     }
 };
 
+exports.deleteSubject = async (req, res) => {
+    try {
+        await Subject.findByIdAndDelete(req.params.id);
+        res.redirect('/subjects');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Wystąpił problem podczas usuwania przedmiotu.');
+    }
+};
