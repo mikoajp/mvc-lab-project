@@ -18,3 +18,8 @@ exports.addSubject = async (req, res) => {
         res.status(500).send(error);
     }
 };
+
+exports.showAddForm = (req, res) => {
+    res.render('addSubject');
+};
+

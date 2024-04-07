@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const subjectRoutes = require('../src/routes');
 
 const app = express();
@@ -10,15 +9,13 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.send('Witaj w aplikacji do śledzenia postępów w nauce!');
+    res.render('home');
 });
 
 const indexRoutes = require('../src/routes/index');
 app.use('/', indexRoutes);
 
-mongoose.connect('your_mongodb_connection_string', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Połączono z MongoDB.'))
-    .catch(err => console.error('Nie udało się połączyć z MongoDB:', err));
+require('./database');
 
 app.use('/', subjectRoutes);
 

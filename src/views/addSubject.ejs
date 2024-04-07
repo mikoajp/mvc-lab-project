@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Dodaj Przedmiot</title>
+    <link rel="stylesheet" href="/public/add.css">
+</head>
+<body>
+<%- include('partials/navbar') %>
+<h1>Dodaj nowy przedmiot</h1>
+<form action="/subjects" method="post">
+    <label for="name">Nazwa przedmiotu:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="level">Poziom zaawansowania:</label>
+    <input type="text" id="level" name="level" required>
+    <br>
+    <label for="achievements">Osiągnięcia:</label>
+    <input type="text" id="achievements" name="achievements">
+    <br>
+    <button type="submit">Dodaj Przedmiot</button>
+</form>
+</body>
+</html>
