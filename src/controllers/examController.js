@@ -19,7 +19,7 @@ exports.createExam = async (req, res) => {
 exports.showCalendar = async (req, res) => {
     try {
         const exams = await Exam.find().populate('subjectId').lean();
-        res.render('examCalendar', { exams: JSON.stringify(exams) });
+        res.render('calendar', { exams: JSON.stringify(exams) });
     } catch (error) {
         console.error(error);
         res.status(500).send('Błąd serwera podczas pobierania egzaminów.');

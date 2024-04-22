@@ -5,9 +5,34 @@
     <!-- FullCalendar JS (zależności) -->
     <script src='https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js'></script>
     <script src='https://unpkg.com/fullcalendar/main.min.js'></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        nav {
+            background-color: #fff; /* White background */
+            color: #333; /* Dark gray text */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+            padding: 15px 20px;
+        }
+        nav a {
+            color: #333; /* Dark gray text for links */
+            text-decoration: none; /* No underline */
+            margin: 0 15px;
+            font-size: 16px; /* Slightly larger font size */
+            transition: color 0.3s ease; /* Smooth transition for hover effect */
+        }
+        nav a:hover {
+            color: #0056b3; /* Blue color on hover */
+            text-decoration: underline; /* Underline on hover for emphasis */
+        }
+    </style>
 </head>
 <nav>
-    <div style="padding: 20px; background-color: #f3f3f3;">
+    <div style="">
         <a href="/">Strona główna</a> |
         <a href="/subjects">Lista przedmiotów</a> |
         <a href="/add-subject">Dodaj przedmiot</a> |
