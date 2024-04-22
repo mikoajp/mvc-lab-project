@@ -12,8 +12,7 @@ router.get('/api/exams', async (req, res) => {
         const events = exams.map(exam => {
             return {
                 title: exam.name,
-                start: exam.date.toISOString(), // FullCalendar wymaga formatu ISO
-                // Możesz dodać inne właściwości, jak description czy id
+                start: exam.date.toISOString(),
             };
         });
         res.json(events);
