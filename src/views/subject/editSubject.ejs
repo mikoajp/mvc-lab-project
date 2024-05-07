@@ -2,6 +2,71 @@
 <html lang="">
 <head>
     <title>Edytuj przedmiot</title>
+    <style>
+        /* Basic Reset */
+        body, h1, form, button {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        /* Background and overall layout */
+        body {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        /* Heading */
+        h1 {
+            text-align: center;
+            color: #333;
+            padding: 20px 0;
+        }
+
+        /* Form styling */
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Label styling */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        /* Input fields styling */
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* includes padding and border in width */
+        }
+
+        /* Button Styling */
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #5C67F2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #5058E5;
+        }
+    </style>
 </head>
 <body>
 <%- include('../partials/navbar') %>

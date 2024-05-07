@@ -3,6 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Szczegóły przedmiotu: <%= subject.name %></title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Navbar styling */
+        nav {
+            background-color: #007BFF;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main heading styling */
+        h1 {
+            color: #007BFF;
+            text-align: center;
+        }
+
+        /* Paragraph styling for details */
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Exam list styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+            border-radius: 4px;
+        }
+
+        /* Sub-heading styling */
+        h2 {
+            color: #0056b3;
+            padding-top: 20px;
+        }
+    </style>
 </head>
 <body>
 <%- include('../partials/navbar') %> <!-- Załóżmy, że masz navbar -->

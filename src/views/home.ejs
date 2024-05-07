@@ -1,15 +1,54 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strona Główna</title>
+    <style>
+        /* Background gradient */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
 
+        h1 {
+            text-align: center;
+            margin: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Simple fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Styling for a hero image */
+        .hero-image {
+            max-width: 100%;
+
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+    </style>
 </head>
 <body>
 <%- include('partials/navbar') %>
 <h1>Witaj w aplikacji do śledzenia postępów w nauce!</h1>
-<p>Ta aplikacja pomoże Ci monitorować Twój postęp w nauce różnych przedmiotów.</p>
-<a href="/add-subject">Dodaj nowy przedmiot</a> | <a href="/subjects">Zobacz listę przedmiotów</a>
+<!-- Hero image -->
+<img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Learning Image" class="hero-image">
 </body>
 </html>

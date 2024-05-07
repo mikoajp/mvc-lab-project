@@ -2,6 +2,144 @@
 <html lang="">
 <head>
     <title>Lista przedmiotów</title>
+    <style>
+        /* Basic styling for body and fonts */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Main heading */
+        h1 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the list and its items */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-right: 140px;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        /* Link and action button styling */
+        a, button {
+            font-size: 14px;
+            color: #007BFF;
+            background: none;
+            border: none;
+
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        a:hover, button:hover {
+            text-decoration: underline;
+        }
+
+        /* Specific styles for edit and delete buttons */
+        .action-links {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        button.delete-button {
+            color: #FF6347;
+            margin-left: 10px;
+        }
+
+        button.delete-button:hover {
+            color: #E55353;
+        }
+        /* Link styling */
+        a.subject-link {
+            color: #007BFF; /* Primary color for the link */
+            text-decoration: none; /* Remove underline by default */
+            padding: 5px 10px; /* Padding for better clickability */
+            background-color: #f2f2f2; /* Light gray background */
+            border: 1px solid #d3d3d3; /* Subtle border */
+            border-radius: 5px; /* Rounded corners for a softer look */
+            display: inline-block; /* Makes padding effective */
+            transition: all 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+        /* Hover effect for the link */
+        a.subject-link:hover {
+            text-decoration: underline; /* Adds underline on hover for emphasis */
+            background-color: #e6e6e6; /* Slightly darker background on hover */
+            color: #0056b3; /* Darker blue for better visibility on hover */
+        }
+        a.edit-link {
+            color: #4CAF50; /* Green, suggests "go" or "edit" */
+            text-decoration: none; /* Removes the underline by default */
+            padding: 5px 8px; /* Adequate padding for easier clickability */
+            background-color: #f0f0f0; /* Light grey background */
+            border-radius: 3px; /* Rounded corners for a smoother look */
+            border: 1px solid #d4d4d4; /* Subtle border to define the link */
+            transition: background-color 0.2s, color 0.2s; /* Smooth transition for interactive effects */
+        }
+
+        /* Hover effect for the edit link */
+        a.edit-link:hover {
+            background-color: #e0e0e0; /* Darker grey on hover for contrast */
+            text-decoration: underline; /* Underline on hover for emphasis */
+            color: #367c39; /* Darker green, maintaining the thematic color but enhancing visibility */
+        }
+        form.delete-form {
+            display: inline; /* Keeps form inline with other text or buttons */
+        }
+
+        /* Styling for the delete button */
+        button.delete-button {
+            background-color: #FF6347; /* Tomato red, indicating a potentially destructive action */
+            color: white; /* White text for contrast and readability */
+            border: none; /* Removes default border */
+            padding: 5px 10px; /* Sufficient padding for easy interaction */
+            border-radius: 4px; /* Rounded corners for a modern appearance */
+            cursor: pointer; /* Indicates that the button is clickable */
+            transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions for visual effects */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for 3D effect */
+        }
+
+        /* Hover effect for the delete button */
+        button.delete-button:hover {
+            background-color: #E53E30; /* Slightly darker shade of red for visual feedback */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Increased shadow for a "lifted" effect */
+        }
+        a.add-exam-link {
+            color: #28a745; /* Green color indicating a positive, non-destructive action */
+            background-color: #e2f0d9; /* Very light green background for emphasis */
+            text-decoration: none; /* Remove underline by default */
+            padding: 5px 10px; /* Padding for better clickability */
+            border-radius: 5px; /* Rounded corners for a modern look */
+            margin-left: 10px; /* Maintain margin as per your inline style */
+            border: 1px solid #28a745; /* Subtle green border matching the text color */
+            display: inline-block; /* Ensures padding and margin are applied correctly */
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+        }
+
+        /* Hover effects for the 'Add Exam' link */
+        a.add-exam-link:hover {
+            background-color: #28a745; /* Darker green on hover for more emphasis */
+            color: white; /* Change text color to white for better contrast */
+            text-decoration: underline; /* Underline on hover for added emphasis */
+        }
+    </style>
 </head>
 <body>
 <%- include('../partials/navbar') %>
@@ -9,13 +147,16 @@
 <ul>
     <% subjects.forEach(function(subject) { %>
         <li>
-            <a href="/subjects/<%= subject._id %>"><%= subject.name %></a> - Poziom: <%= subject.level %>
-            <a href="/edit-subject/<%= subject._id %>">Edytuj</a>
-            <form action="/subjects/<%= subject._id %>?_method=DELETE" method="post" style="display: inline;">
+            <a href="/subjects/<%= subject._id %>" class="subject-link"><%= subject.name %></a>
+            Poziom: <%= subject.level %>
+            <a href="/edit-subject/<%= subject._id %>" class="edit-link">Edytuj</a>
+
+            <form action="/subjects/<%= subject._id %>?_method=DELETE" method="post" class="delete-form">
                 <input type="hidden" name="_method" value="DELETE">
-                <button type="submit">Usuń</button>
+                <button type="submit" class="delete-button">Usuń</button>
             </form>
-            <a href="/exams/add/<%= subject._id %>" style="margin-left: 10px;">Dodaj egzamin</a>
+            <a href="/exams/add/<%= subject._id %>" class="add-exam-link">Dodaj egzamin</a>
+
         </li>
     <% }) %>
 </ul>
