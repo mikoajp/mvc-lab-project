@@ -27,5 +27,3 @@ exports.showCalendar = async (req, res) => {
 };
 
 
-
-// Dodaj tutaj metody do edycji, usuwania i wyświetlania egzaminów

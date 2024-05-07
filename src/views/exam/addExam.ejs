@@ -6,7 +6,7 @@
     <title>Dodaj Egzamin</title>
 </head>
 <body>
-<%- include('../partials/navbar') %>
+<%- include('/partials/navbar') %>
 <h1>Dodaj nowy egzamin</h1>
 <form action="/exams" method="POST">
     <input type="hidden" name="subjectId" value="<%= subjectId %>">
