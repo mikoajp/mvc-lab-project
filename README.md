@@ -15,7 +15,7 @@ This project, "Zadanie 3 - system monitorowania postępów w nauce," is an appli
 
 ### Installation
 To get started with this project, follow these steps:
-1. Clone the repository: git clone [https://github.com/yourusername/mvc-lab-project.git](https://github.com/mikoajp/mvc-lab-project.git)
+1. Clone the repository: git clone https://github.com/mikoajp/mvc-lab-project.git
 2. Navigate to the project directory: cd mvc-lab-project
 3. Install dependencies: npm install
 4. Start the server: node src/app
