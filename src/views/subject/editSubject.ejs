@@ -70,6 +70,7 @@
 </head>
 <body>
 <%- include('../partials/navbar') %>
+
 <h1>Edytuj przedmiot</h1>
 <form action="/subjects/<%= subject._id %>?_method=PUT" method="post">
     <input type="hidden" name="_method" value="PUT">
