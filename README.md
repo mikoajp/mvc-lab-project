@@ -18,6 +18,6 @@ To get started with this project, follow these steps:
 1. Clone the repository: git clone https://github.com/yourusername/mvc-lab-project.git
 2. Navigate to the project directory: cd mvc-lab-project
 3. Install dependencies (if any): npm install
-4. Start the server: node app.js
+4. Start the server: node src/app
 
 
